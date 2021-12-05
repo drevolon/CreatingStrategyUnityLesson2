@@ -4,21 +4,20 @@ using UnityEngine;
 
 namespace UserControlSystem
 {
-    [CreateAssetMenu(fileName = nameof(SelectableValue), menuName = "Strategy Game/" + nameof(SelectableValue), order = 0)]
-    public class AttackableValue : ScriptableObject
+    [CreateAssetMenu(fileName = nameof(AttackableValue), menuName = "Strategy Game/" + nameof(AttackableValue), order = 0)]
+    public class AttackableValue : ScriptableObjectValueBase<IAttackable>
     {
-        public ISelectable CurrentValue { get; private set; }
-        public Action<ISelectable> OnSelected;
+        public IAttackable CurrentValue { get; private set; }
+        public Action<IAttackable> OnSelected;
 
-        public void SetValue(ISelectable value)
+        public void SetValue(IAttackable value)
         {
             CurrentValue = value;
             OnSelected?.Invoke(value);
         }
 
-        public void SetValue(IAttackable attackable)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
+
+    
 }

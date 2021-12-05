@@ -1,14 +1,14 @@
-﻿using System.Linq;
-using Abstractions;
+﻿using Abstractions;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UserControlSystem;
 
-public sealed class MouseInteractionPresenter : MonoBehaviour
+public class MouseInteractionsPresenter : MonoBehaviour
 {
+    [SerializeField] private EventSystem _eventSystem;
     [SerializeField] private Camera _camera;
     [SerializeField] private SelectableValue _selectedObject;
-    [SerializeField] private EventSystem _eventSystem;
 
     [SerializeField] private Vector3Value _groundClicksRMB;
     [SerializeField] private AttackableValue _attackablesRMB;
@@ -27,12 +27,10 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
         {
             return;
         }
-
         if (_eventSystem.IsPointerOverGameObject())
         {
             return;
         }
-
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
         var hits = Physics.RaycastAll(ray);
         if (Input.GetMouseButtonUp(0))
@@ -46,16 +44,13 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
         {
             if (weHit<IAttackable>(hits, out var attackable))
             {
-                //_attackablesRMB.SetValue(attackable);
+                _attackablesRMB.SetValue(attackable);
             }
             else if (_groundPlane.Raycast(ray, out var enter))
             {
                 _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
             }
         }
-
-
-
     }
 
     private bool weHit<T>(RaycastHit[] hits, out T result) where T : class
@@ -71,5 +66,4 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
             .FirstOrDefault();
         return result != default;
     }
-
 }
