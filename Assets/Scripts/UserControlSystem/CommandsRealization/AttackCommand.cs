@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UserControlSystem.CommandsRealization
-{
+
     public class AttackCommand : IAttackCommand
     {
         public IAttackable Target { get; }
@@ -14,10 +13,10 @@ namespace UserControlSystem.CommandsRealization
             Target = target;
         }
 
-        public AttackCommand()
-        {
-        }
+    public AttackCommand()
+    {
     }
-
-
 }
+
+
+

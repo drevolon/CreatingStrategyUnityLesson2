@@ -1,10 +1,9 @@
 {
-    "name": "Model",
+    "name": "CommandsRealization",
     "rootNamespace": "",
     "references": [
         "GUID:2728968faebc67b4f9216c44328da7f6",
-        "GUID:29f1c49583a08bc44a23b42d7c43c18e",
-        "GUID:2c35b07dec99a7f4098282039beb68c2"
+        "GUID:29f1c49583a08bc44a23b42d7c43c18e"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -16,6 +16,16 @@ public static class AsyncExtensions
                 ct.ThrowIfCancellationRequested();
             }
         }
+
+       
+
+
         return await originalTask;
+
+
+    }
+    public static Task<TResult> AsTask<TResult>(this IAwaitable<TResult> awaitable)
+    {
+        return Task.Run(async () => await awaitable);
     }
 }

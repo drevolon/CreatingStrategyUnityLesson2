@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UserControlSystem;
 
-public class MouseInteractionsPresenter : MonoBehaviour
+public class MouseInteractionPresenter : MonoBehaviour
 {
     [SerializeField] private EventSystem _eventSystem;
     [SerializeField] private Camera _camera;

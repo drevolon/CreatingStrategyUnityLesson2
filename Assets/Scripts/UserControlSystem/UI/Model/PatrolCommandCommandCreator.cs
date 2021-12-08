@@ -36,8 +36,5 @@ public class PatrolCommandCommandCreator : CommandCreatorBase<IPatrolCommand>
 		_creationCallback = null;
 	}
 
-    protected override void ClassSpecificCommandCreation(Action<IPatrolCommand> creationCallback)
-    {
-        throw new NotImplementedException();
-    }
+   
 }

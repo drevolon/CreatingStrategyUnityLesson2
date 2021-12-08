@@ -6,30 +6,26 @@ using Zenject;
 
 namespace UserControlSystem
 {
-    public abstract class CancellableCommandCreatorBase<TCommand, TArgument>
-        : CommandCreatorBase<TCommand> where TCommand : ICommand
+    public abstract class CancellableCommandCreatorBase<TCommand, TArgument> : CommandCreatorBase<TCommand> where TCommand : ICommand
     {
         [Inject] private AssetsContext _context;
         [Inject] private IAwaitable<TArgument> _awaitableArgument;
 
         private CancellationTokenSource _ctSource;
 
-        protected override async void ClassSpecificCommandCreation(Action<TCommand> creationCallback)
+        protected override sealed async void classSpecificCommandCreation(Action<TCommand> creationCallback)
         {
             _ctSource = new CancellationTokenSource();
             try
             {
-                var argument = await _awaitableArgument.WithCancellation(_ctSource.Token);
-                creationCallback?
-                    .Invoke(_context.Inject(CreateCommand(argument)));
+               // var argument = await _awaitableArgument.WithCancellation(_ctSource.Token);
+               // creationCallback?
+               // .Invoke(_context.Inject(createCommand(argument)));
             }
-            catch
-            {
-                // ignored
-            }
+            catch { }
         }
 
-        protected abstract TCommand CreateCommand(TArgument argument);
+        protected abstract TCommand createCommand(TArgument argument);
 
         public override void ProcessCancel()
         {

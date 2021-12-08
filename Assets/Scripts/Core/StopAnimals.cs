@@ -9,6 +9,8 @@ public class StopAnimals : CommandExecutorBase<IStopCommand>, ISelectable
     public float MaxHealth => _maxHealth;
     public Sprite Icon => _icon;
 
+    public Transform PivotPoint => throw new System.NotImplementedException();
+
     [SerializeField] private Transform _unitsParent;
 
     [SerializeField] private float _maxHealth = 100;

@@ -4,9 +4,10 @@ using Abstractions;
 using Abstractions.Commands;
 using Abstractions.Commands.CommandsInterfaces;
 using UnityEngine;
-using UserControlSystem.CommandsRealization;
+//using UserControlSystem.CommandsRealization;
 using UserControlSystem.UI.View;
 using Utils;
+
 
 namespace UserControlSystem.UI.Presenter
 {
@@ -66,7 +67,7 @@ namespace UserControlSystem.UI.Presenter
             var patrol = commandExecutor as CommandExecutorBase<IPatrolCommand>;
             if (patrol != null)
             {
-                patrol.ExecuteSpecificCommand(_context.Inject(new PatrolCommand()));
+               // patrol.ExecuteSpecificCommand(_context.Inject(new PatrolCommand()));
                 return;
             }
             var stop = commandExecutor as CommandExecutorBase<IStopCommand>;
