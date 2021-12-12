@@ -4,5 +4,5 @@ using System.Threading.Tasks;
 public interface IAwaitable<T>
 {
 	IAwaiter<T> GetAwaiter();
-    Task WithCancellation(CancellationToken token);
+    //Task WithCancellation(CancellationToken token);
 }

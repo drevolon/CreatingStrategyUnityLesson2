@@ -1,6 +1,7 @@
 ﻿using Abstractions;
 using Abstractions.Commands;
 using Abstractions.Commands.CommandsInterfaces;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class StopAnimals : CommandExecutorBase<IStopCommand>, ISelectable
@@ -18,8 +19,11 @@ public class StopAnimals : CommandExecutorBase<IStopCommand>, ISelectable
 
     private float _health = 100;
 
-    public override void ExecuteSpecificCommand(IStopCommand command)
+    public override async Task ExecuteSpecificCommand(IStopCommand command)
     {
         Debug.Log("Press STOP");
+        
     }
+
+    
 }

@@ -1,16 +1,13 @@
 using Abstractions.Commands.CommandsInterfaces;
 using System;
+using System.Threading;
 using UserControlSystem;
 using Utils;
 using Zenject;
 
-public class AttackCommandCommandCreator : CommandCreatorBase<IAttackCommand>
+public class AttackCommandCommandCreator : CancellableCommandCreatorBase<IAttackCommand, IAttackable>
 {
-	[Inject] private AssetsContext _context;
-	[Inject] private AttackableValue _groundClicks;
+   
 
-	protected override async void classSpecificCommandCreation(Action<IAttackCommand> creationCallback)
-	{
-		creationCallback?.Invoke(_context.Inject(new AttackCommand(await _groundClicks)));
-	}
+    protected override IAttackCommand createCommand(IAttackable argument) => new AttackCommand(argument);
 }

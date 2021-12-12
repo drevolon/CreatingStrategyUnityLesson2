@@ -3,6 +3,7 @@ using Abstractions.Commands;
 using Abstractions.Commands.CommandsInterfaces;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class AttackAnimals : CommandExecutorBase<IAttackCommand>, ISelectable
@@ -20,8 +21,12 @@ public class AttackAnimals : CommandExecutorBase<IAttackCommand>, ISelectable
 
     private float _health = 100;
 
-    public override void ExecuteSpecificCommand(IAttackCommand command)
+
+
+    public override async Task ExecuteSpecificCommand(IAttackCommand command)
     {
-        Debug.Log("Press Attack");
+        Debug.Log($"{name} attack!");
+        
     }
+
 }

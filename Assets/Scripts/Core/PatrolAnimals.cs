@@ -1,6 +1,7 @@
 ﻿using Abstractions;
 using Abstractions.Commands;
 using Abstractions.Commands.CommandsInterfaces;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PatrolAnimals : CommandExecutorBase<IPatrolCommand>, ISelectable
@@ -18,8 +19,14 @@ public class PatrolAnimals : CommandExecutorBase<IPatrolCommand>, ISelectable
 
     private float _health = 100;
 
-    public override void ExecuteSpecificCommand(IPatrolCommand command)
+    public override Task ExecuteSpecificCommand(IPatrolCommand command)
     {
         Debug.Log("Press Patrol");
+        throw new System.NotImplementedException();
     }
+
+    //public override void ExecuteSpecificCommand(IPatrolCommand command)
+    //{
+    //    Debug.Log("Press Patrol");
+    //}
 }

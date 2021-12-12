@@ -28,4 +28,8 @@ public static class AsyncExtensions
     {
         return Task.Run(async () => await awaitable);
     }
+
+    public static async Task<TResult> WithCancellation<TResult>(this IAwaitable<TResult> originalTask, CancellationToken ct) =>
+        await WithCancellation(originalTask.AsTask(), ct);
+
 }

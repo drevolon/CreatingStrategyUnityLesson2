@@ -3,6 +3,7 @@ using Abstractions.Commands;
 using Abstractions.Commands.CommandsInterfaces;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class MoveAnimals: CommandExecutorBase<IMoveCommand>, ISelectable
@@ -19,10 +20,15 @@ public class MoveAnimals: CommandExecutorBase<IMoveCommand>, ISelectable
     [SerializeField] private Sprite _icon;
 
     private float _health = 100;
-    public override void ExecuteSpecificCommand(IMoveCommand command)
+
+    public override Task ExecuteSpecificCommand(IMoveCommand command)
     {
-        Debug.Log("Press Move");
+        throw new System.NotImplementedException();
     }
+    //public override void ExecuteSpecificCommand(IMoveCommand command)
+    //{
+    //    Debug.Log("Press Move");
+    //}
 }
 
 
