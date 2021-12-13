@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿
+using Abstractions.Commands;
+using UnityEngine;
 
-namespace Abstractions.Commands.CommandsInterfaces
+public interface IProduceUnitCommand : ICommand
 {
-    public interface IProduceUnitCommand : ICommand
-    {
-        GameObject UnitPrefab { get; }
-    }
+	float ProductionTime { get; }
+	Sprite Icon { get; }
+	GameObject UnitPrefab { get; }
+	string UnitName { get; }
 }

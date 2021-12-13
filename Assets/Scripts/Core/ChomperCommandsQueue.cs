@@ -1,8 +1,8 @@
-using UnityEngine;
-using UniRx;
-using Zenject;
-using Abstractions.Commands.CommandsInterfaces;
 using Abstractions.Commands;
+using Abstractions.Commands.CommandsInterfaces;
+using UniRx;
+using UnityEngine;
+using Zenject;
 
 public class ChomperCommandsQueue : MonoBehaviour, ICommandsQueue
 {

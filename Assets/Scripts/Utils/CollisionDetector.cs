@@ -2,8 +2,7 @@
 using UniRx;
 using UnityEngine;
 
-namespace Utils
-{
+
     public class CollisionDetector : MonoBehaviour
     {
         public IObservable<Collision> Collisions => _collisions;
@@ -14,4 +13,3 @@ namespace Utils
             _collisions.OnNext(collision);
         }
     }
-}
